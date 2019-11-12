@@ -16,16 +16,19 @@ root = tk.Tk()
 canvas=tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
-frame = tk.Frame(root, bg = LIGHTBLUE)
-frame.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.5)
+frame = tk.Frame(root, bg = DARKBLUE,bd=5)
+frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor = 'n')
 
-button = tk.Button(frame, text = "Test Button", bg = DARKBLUE, fg = PALEBLUE)
-button.place(relx=0, rely=0, relwidth=0.25, relheight=0.25, anchor="nw")
+entry = tk.Entry(frame, font = 40)
+entry.place(relwidth=0.65, relheight=1)
 
-label = tk.Label(frame, text = "My Label", bg = DARKBLUE, fg = PALEBLUE)
-label.place(relx=0.26, rely=0, relwidth=0.25, relheight=0.25)
+button = tk.Button(frame, text = "Get Weather", bg = PALEBLUE, font = 30)
+button.place(relx=.67,rely=0, relwidth=0.32, relheight=1)
 
-entry = tk.Entry(frame, bg = DARKBLUE, fg = PALEBLUE)
-entry.place(relx=0.52, rely=0, relwidth=0.475, relheight=0.25)
+lower_frame = tk.Frame(root, bg = DARKBLUE,bd=8)
+lower_frame.place(relx=0.5, rely=0.25, relwidth=0.75, relheight=0.6, anchor = 'n')
+
+label = tk.Label(lower_frame, font = 40)
+label.place(relwidth=1, relheight=1)
 
 root.mainloop()
