@@ -3,27 +3,29 @@
 
 import requests
 import tkinter as tk
-from tkinter import messagebox
-root = tk.Tk()
 
 LIGHTBLUE = "#03bafc"
 DARKBLUE = "#034efc"
 PALEBLUE = "#c1f0f5"
 
-#def helloCallBack():
-#       msg = messagebox.showinfo( "Hello Python", "Hello World")
-canvas = tk.Canvas(root, height = 400, width = 600)
+HEIGHT = 700
+WIDTH = 800
+
+root = tk.Tk()
+
+canvas=tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
 frame = tk.Frame(root, bg = LIGHTBLUE)
-frame.place(relx = 0.1, rely = 0.1, relheight = 0.8, relwidth = 0.8)
+frame.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.5)
 
 button = tk.Button(frame, text = "Test Button", bg = DARKBLUE, fg = PALEBLUE)
-label = tk.Label(frame, text = "My lovely label", bg = DARKBLUE, fg = PALEBLUE)
-entry = tk.Entry(frame, text = "My entry", bg = DARKBLUE, fg = PALEBLUE)
+button.place(relx=0, rely=0, relwidth=0.25, relheight=0.25, anchor="nw")
 
-button.pack()
-label.pack()
-entry.pack()
+label = tk.Label(frame, text = "My Label", bg = DARKBLUE, fg = PALEBLUE)
+label.place(relx=0.26, rely=0, relwidth=0.25, relheight=0.25)
+
+entry = tk.Entry(frame, bg = DARKBLUE, fg = PALEBLUE)
+entry.place(relx=0.52, rely=0, relwidth=0.475, relheight=0.25)
 
 root.mainloop()
