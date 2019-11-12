@@ -13,18 +13,33 @@ PALEBLUE = "#c1f0f5"
 HEIGHT = 500
 WIDTH = 600
 
-root = tk.Tk()
 
-def test_function(entry):
-    print (entry)
+def format_response(weather):
+   try:
+        name = weather['name']
+        desc = weather['weather'][0]['description']
+        temp = weather['main']['temp']
+
+        final_str = 'City: %s \nConditions: %s \nTemperature (C): %s '% (name, desc, temp)
+        print (final_str)
+
+   except:
+        final_str = "There was a problem retrieving that information."
+   return final_str
+
+
 
 def get_weather(city):
     weather_key = '463b0ae259c10982f0e5d0dccf54bde5'   
-    url ='https://api.openweathermap.org/data/2.5/forecast' 
+    url ='https://api.openweathermap.org/data/2.5/weather' 
     params = {'APPID': weather_key,'q': city, 'units': 'metric'}
     response = requests.get(url, params=params)
-    print (response.json())
+    weather = response.json()
+    print(weather)
 
+    label['text'] = format_response(weather)
+
+root = tk.Tk()
 
 canvas=tk.Canvas(root, height = HEIGHT, width = WIDTH)
 canvas.pack()
