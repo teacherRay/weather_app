@@ -20,13 +20,11 @@ def format_response(weather):
         desc = weather['weather'][0]['description']
         temp = weather['main']['temp']
 
-        final_str = 'City: %s \nConditions: %s \nTemperature °C: %s '% (name, desc, temp)
+        final_str = 'City: %s \nConditions: %s \nTemperature: %s°C '% (name, desc, temp)
         
-
    except:
         final_str = "There was a problem retrieving that information."
    return final_str
-
 
 
 def get_weather(city):
@@ -36,10 +34,16 @@ def get_weather(city):
     response = requests.get(url, params=params)
     weather = response.json()
     
-
     label['text'] = format_response(weather)
 
+   
+
+########################################################################################
+############################   The Window     ##########################################
+########################################################################################
 root = tk.Tk()
+root.title('Weather App')
+root.iconbitmap("clouds.ico")
 
 canvas=tk.Canvas(root, height = HEIGHT, width = WIDTH)
 canvas.pack()
@@ -63,3 +67,5 @@ label = tk.Label(lower_frame, font = ('Courier', 18))
 label.place(relwidth = 1, relheight = 1)
 
 root.mainloop()
+
+
